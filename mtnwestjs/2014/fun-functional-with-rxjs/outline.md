@@ -1,15 +1,25 @@
+#Add Some Fun to Functional Programming With RXJS
+
+Everyone knows that managing and structuring Async and Evented heaving isn't much fun, however with RXJS it becomes as simple as 1,2,3.  
+
 ####About Me
  * bla
  * bla
  * bla
 
 ####What is Reactive JavaScript?
+
+ * builds on functional constructs
+ * New datatypes Observable & Observer
+ * The Observer Pattern + Iterator Pattern = Reactive Programming
+ * When the Observable gets data it pushes it to its Observers
+ 
  
 ####Why Reactive
 
  * take advantage of multiple cores
  * normalize async data & events
- * makes use of good functional constructs to help reduce bugs ( less state )
+ * avoid state
  
 ####Observable vs. Promise
 
@@ -20,10 +30,8 @@
      * merge, mergeAll, switch latest
  	
 
-####The Power of Observables
+####The Power of Observables & Observers
 
- * The Observer Pattern + Iterator Pattern = Reactive Programming
- * Observable as a new Datatype
  * Creating Observables
    * fromEvent
    * fromPromise
@@ -32,15 +40,18 @@
    * onComplete()
    * onError()
  * Build compostable data streams that are easy to read
-     * Event delegation
-     * Async AJAX example
      
 ####Flattening Strategies
+
+When using RX it's easy to get Observables that contain arrays of other Observables.  
+
  * concat
  * concatAll
  * switchLatest
+ * Example
 
 ####The 5 Pillars of Functional (with a Reactive Twist)
+
  * Map
  * Reduce & Scan
  * Filter
@@ -61,15 +72,14 @@
 **Concat All**
 
 ####Combining the Pillars with Observable Instances
+
  * distinctUntilChanged
  * throttle
  * takeUntil
  * take
  * skip
 
-When using RX it's easy to get Observables that contain arrays of other Observables.  
- 
- * Example
+
  
 ####Patterns in RX
 
