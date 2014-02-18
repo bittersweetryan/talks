@@ -7,6 +7,10 @@ Everyone knows that managing and structuring Async and Evented heaving isn't muc
  * bla
  * bla
 
+####Functional Primer (At least as much as you need to know for RX).
+ * Avoid State
+ * Use functions to transform data and return NEW data
+
 ####What is Reactive JavaScript?
 
  * builds on functional constructs
@@ -21,7 +25,7 @@ Everyone knows that managing and structuring Async and Evented heaving isn't muc
  * normalize async data & events
  * avoid state
  
-####Observable vs. Promise
+####Observable vs. Promise vs. EventEmitter in Node
 
  * can retry
  * hot or cold datasource
@@ -29,7 +33,6 @@ Everyone knows that managing and structuring Async and Evented heaving isn't muc
    * merging strategies
      * merge, mergeAll, switch latest
  	
-
 ####The Power of Observables & Observers
 
  * Creating Observables
@@ -79,9 +82,7 @@ When using RX it's easy to get Observables that contain arrays of other Observab
  * take
  * skip
 
-
- 
-####Patterns in RX
+####UI Patterns in RX
 
  * In UI programming it's important to know when to make the switch from declarative (5 pillars) to imparative (if's and elses)
  * replace if's with filters
