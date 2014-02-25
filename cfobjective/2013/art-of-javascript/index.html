@@ -9,7 +9,7 @@
     
     <title>The Art of JavaScript : Level Up Your Skills in 60 Minutes</title>
     
-    <meta name="description" content="A presentation on JavaScript fundamentals.">
+    <meta name="description" content="A presentation on JavaScript fundamentals for ColdFusion developers.">
     <meta name="author" content="Ryan Anklam">
     <meta name="viewport" content="width=1024, user-scalable=no">
     
@@ -43,6 +43,17 @@
 Title
  -->
 
+<div class="slide" id="title-slide">
+    <ul>
+        <li>Water</li>
+        <li>Turn off all chrome extentions</li>
+        <li>Console Font Bigger</li>
+        <li>Close Tabs</li>
+        <li>Close IM's</li>
+        <li>Close Console & reload preso</li>
+    </ul>
+</div>
+
 <div class="slide" id="introslide">
     <h1>The Art of JavaScript: Level Up Your Skills In 60 Minutes</h1>
 </div>
@@ -52,14 +63,28 @@ About me
  -->
 
 <div class="slide" id="about-me">
-    <h2>Hero Slide</h2>
-    <h3>Work</h3>
-    <p>Senior UI Engineer @ Netflix</p>
+    <h2>Obligitory About me</h2>
     <h3>Contact</h3>
     <ul style="list-style:none">
         <li>ryan.anklam@gmail.com</li>
         <li>@bittersweetryan (Twitter, GitHub)</li>
-        <li><a href="http://blog.ankl.am" target="_blank">blog.ankl.am</a></li>
+        <li><a href="http://blog.bittersweetryan.com" target="_blank">blog.bittersweetryan.com</a></li>
+    </ul>
+    <h3>Experience</h3>
+    <ul>
+        <li>Technical Solutions Architect at IDL Solutions <a href="http://www.idl.com" target="_blank">http://www.idl.com</a>.</li>
+        <li>Web Developer since 1997</li>
+        <li>I ♥ Open Source
+            <ul>
+                <li>
+                    <strong>Author</strong>: ColdFusion Koans, GitHub News Filter (Chrome Extension), Envelope.js
+                </li>
+                <li>
+                    <strong>Contributor</strong>: JavaScript Koans, MXUnit, FW/1
+                </li>
+            </ul>
+        </li>
+        <li>Known To Make Obscure Simpsons Refernces. D'oh!</li>
     </ul>
 </div>
 
@@ -70,7 +95,6 @@ Cover
 <div class="slide" id="what-well-cover">
     <h2>What we'll cover</h2>
     <p>We will cover A LOT of ground! Please feel free to stop me in the halls, email me, or tweet at me to talk about any part of this presentation!</p>
-    <p>These slides are also intentionally verbose, so you can come back and review it later.</p>
     <ul>
         <li class="slide">
             <h3>Basics</h3>
@@ -111,7 +135,7 @@ Variables
     <ul>
         <li class="slide"><code class="prettyPrint">string</code></li>
         <li class="slide"><code class="prettyPrint">number</code></li>
-        <li class="slide"><code class="prettyPrint">object</code> (functions, regular expressions, and arrays are technically objects)</li>
+        <li class="slide"><code class="prettyPrint">object</code> (functions and arrays are technically objects)</li>
         <li class="slide"><code class="prettyPrint">boolean</code></li>
         <li class="slide"><code class="prettyPrint">undefined</code> (dont initialize values to undefined, its semantically incorrect)</li>
         <li class="slide"><code class="prettyPrint">null</code> (use null to initialize empty values)</li>
@@ -247,8 +271,7 @@ myArray.join( &quot;,&quot; ) //combines elements into string, separated by argu
 <div class="slide">
     <h2>Arrays</h2>
     <p>More methods:</p>
-    <div><pre><code class="prettyprint">//extremely poweful and underused IMO
-myArray.sort( function( a, b ) { 
+    <div><pre><code class="prettyprint">myArray.sort( function( a, b ) { 
     if( a < b )
         return -1;
     if( a > b)
@@ -357,8 +380,8 @@ console.log( false === '' );</textarea>
 
 <div class="slide">
     <h2>Truthy / Falsy Values</h2>
-    <p>The following values are considered <code class="prettyprint">falsy</code></p>
-    <pre><code class="prettyprint">if( !&lt;falsy value&gt; ){  }</code></pre>
+    <p>The following values evaluate to <code class="prettyprint">false</code>, since some of them not primitive boolean datatypes they are said to be "falsy".</p>
+    <h3>Falsy Values</h3>
         <ul>
             <li>
                 <code class="prettyprint">false</code>
@@ -631,14 +654,7 @@ myFunc( &quot;Hello&quot;, &quot;World&quot;, function(){} );</code></pre>
 
 <div class="slide">
     <h2>Function Arguments</h2>
-    <p>Sometimes we want the arguments to work like an actual array.</p>
-    <pre><code class="prettyprint">var argumentsArray = Array.prototype.slice.call( arguments );
-//we'll talk about what a prototype is and what call does later</code></pre>
-</div>
-
-<div class="slide">
-    <h2>Function Arguments</h2>
-    <p>Since JavaScript is a type-less language a lot of bugs can be avoided by checking the type of arguments.</p>
+    <p>Since JavaScript is a type-less language its always a good idea to check the type of arguments.</p>
     <p>To do this we are provided with the <code class="prettyprint">typeof</code> operator</p>
     <div class="slide">
          <textarea id="code10" name="code" class="code" mode="javascript" style="display: none;" runnable="true">console.log("Type of string: " + typeof "hello");
@@ -654,15 +670,11 @@ console.log( "Type of function: " + typeof function(){} );
 console.log( "Type of function: " + typeof undefinedVar );</textarea>
     </div>
     <br>
-</div>
-
-<div class="slide">
-    <h2>Checking for undefined</h2>
+    <div class="slide">
     <p>To check if a variable is defined or not you can use the <code class="prettyprint">typeof</code> operator on it.</p>
-    <pre><code class="prettyprint">if( undefinedVar === 'undefined') //throws error
-
-if( typeof undefinedVar === 'undefined' ){ ... }</code></pre>
-</div>  
+    <p>Doing <code class="prettyprint">if( undefinedVar === 'undefined')</code> will throw an error.</p>
+    </div>
+</div>
 
 <!--
 <div class="slide">
@@ -716,6 +728,55 @@ createCar();</textarea>
 </div>
 </div>
 -->
+<div class="slide"> 
+    <h2>Lexical Scoping</h2>
+    <p>Functions can be nested inside of other functions.  Each nested function has access to the scope of all its parents.  This is called lexical scoping. </p>
+<!-- may have issues -->
+     <textarea id="code8" name="code" class="code" mode="javascript" style="display: none;" runnable="true">var lexical = function(){
+    var outerVar = 'outer';
+    
+    return function(){
+
+        var innerVar = "inner"; //outer function does not have access
+
+        console.log( outerVar );
+
+            return function(){
+                console.log( innerVar, outerVar );
+            }();
+    }();
+};
+
+lexical();</textarea>
+</div>
+
+
+<div class="slide">
+    <h2>Closures</h2>
+    <ul>
+        <li class="slide">Closures are created when a reference exists to a variable inside a function after that function has been invoked.</li>
+        <li class="slide">The execution context of that variables scope is saved and "wrapped" around that variable.</li>
+        <li class="slide">This effectively saves the "state" of that variables entire scope at the time the function is run.</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h2>Contrived Closure Example</h2>
+        <pre><code class="prettyprint">var timesCalled = function(){
+    var total = 0;
+    
+    return function(){
+        total++;
+        console.log( total );
+    };
+    
+};
+
+var callTimer = timesCalled(); //this call right here creates the closure
+
+callTimer();</code></pre>
+<input type="button" data-run="closure" value="Run">
+</div>
 
 <div class="slide">
     <h2>Constructor Functions</h2>
@@ -775,10 +836,9 @@ console.log( window.robotName ); //note that robotName is now a property of wind
     <h2>Constructor Functions</h2>
     <p>Correct.</p>
      <pre><code class="prettyprint">var robot = new Robot( "Ferbbot" );</code></pre>
-    <p>Incorrect, not using the keyword does not create a scope or a prototype chain.</p>
+     <p>Incorrect, not using the keyword does not create a scope or a prototype chain.</p>
      <pre><code class="prettyprint">var anotherRobot = Robot( "Phineasbot" );</code></pre>
 </div>
-
 <div class="slide">
     <h2>Constructor Functions</h2>
     <p>Without the <code class="prettyprint">new</code> keyword when the constructor is called <code clss="prettyprint">this</code> is equal to the global object.</p>
@@ -793,86 +853,12 @@ This
  -->
 
 <div class="slide" id="this">
-    <h1>Scope</h1>
-</div>
-
-<div class="slide"> 
-    <h2>Lexical Scoping</h2>
-    <p>Functions can be nested inside of other functions.  Each nested function has access to the scope of all its parents.  This is called lexical scoping. </p>
-<!-- may have issues -->
-     <textarea id="code8" name="code" class="code" mode="javascript" style="display: none;" runnable="true">var lexical = function(){
-    var outerVar = 'outer';
-    
-    return function(){
-
-        var innerVar = "inner"; //outer function does not have access
-
-        console.log( outerVar );
-
-            return function(){
-                console.log( innerVar, outerVar );
-            }();
-    }();
-};
-
-lexical();</textarea>
-</div>
-
-
-<div class="slide">
-    <h2>Closures</h2>
-    <ul>
-        <li class="slide">Closures are created when a reference exists to a variable inside a function after that function has been invoked.</li>
-        <li class="slide">The execution context of that variables scope is saved and "wrapped" around that variable.</li>
-        <li class="slide">This effectively saves the "state" of that variables entire scope at the time the function is run.</li>
-    </ul>
-</div>
-
-<div class="slide">
-    <h2>Contrived Closure Example</h2>
-        <pre><code class="prettyprint">var timesCalled = function(){
-    var total = 0;
-    
-    return function(){
-        total++;
-        console.log( total );
-    };
-    
-};
-
-var callTimer = timesCalled(); //this call right here creates the closure
-
-callTimer();</code></pre>
-<input type="button" data-run="closure" value="Run">
-</div>
-
-<div class="slide">
-    <h2>Closures</h2>
-    <p>A lot of times repetitive code can be replaced by using high order functions</p>
-<pre><code class="prettyprint"> function createMessageFn( el, type ){
-    //only write these lines once
-    var tpl = _.template( el.innerHTML ), //precompiling win
-        msg = new Message( tpl() ); 
-    
-    if( typeof type === 'string' && type === 'error'){
-        return function(){ msg.showError(); };
-    }
-    else{
-        return function(){ msg.showInfo(); };
-    }
-}
-
-showError = createMessageFn( 'error' );
-showError();</code></pre>
-</div>
-
-<div class="slide">
-    <h1>this</h1>
+    <h1>This</h1>
 </div>
 
 <div class="slide">
     <h2>This</h2>
-    <p>The <code class="prettyprint">this</code> keyword one of JavaScript's great mysteries.</p>
+    <p>The <code class="prettyprint">this</code> keyword one of JavaScript's most mis-understood keywords.</p>
 <pre><code class="prettyprint">var myObj = {
     myFunc : function(){ 
         console.log( this );
@@ -960,7 +946,7 @@ myObj.sayHello();</code></pre>
 <input type="button" data-run="this3" value="Run"><br><br>
 <p class="slide">In nested functions <code class="prettyprint">this</code> refers back to global namespace!</p>
 </div>
-
+<!--
 <div class="slide">
     <h2>This and jQuery</h2>
     <p>jQuery likes to normalize <code class="prettyprint">this</code>, which can cause issues if you expect <code class="prettyprint">this</code> to refer to the current object.</p>
@@ -992,45 +978,7 @@ obj.init();</code></pre>
 obj.init();</code></pre>
 <input type="button" id="thisButton1" value="Run">
 </div>
-
-<div class="slide">
-    <h2>This & Function.prototype.bind</h2>
-    <p>What happens when you try to reference an object in a jQuery callback?</p>
-    <pre><code class="prettyprint">var handlers = { 
-  fooClick : function( e ){
-    e.preventDefault();
-    
-    console.log( this.sayHello( e.target.href ) ); //error this is not defined
-  },
-  sayHello : function( link ){
-    console.log( 'you clicked on ' + link );
-  }
-};
-
-$( '#fooUnbound' ).on( 'click', handlers.fooClick );</code></pre>
-<input type="button" id="fooUnbound" value="Run">
-</div>
-
-<div class="slide">
-    <h2>This & Function.prototype.bind</h2>
-    <p>In IE > 8 (and all evergreen browsers) you can use Function.prototype.bind to create a NEW function bound to a specific scope.</p>
-    <pre><code class="prettyprint">var handlers = { 
-  fooClick : function( e ){
-     e.preventDefault();
-    
-    console.log( this.sayHello( e.target.href ) );
-  },
-  sayHello : function( link ){
-    console.log( 'you clicked on ' + link );
-  }
-};
-
-//this in boundFooClick is now bound to the handlers object
-handlers.boundFooClick = handlers.fooClick.bind( handlers ); 
-
-$( '#fooBound' ).on( 'click', handlers.boundFooClick );</code></pre>
-</div>
-
+-->
 <div class="slide">
     <h2>This</h2>
     <p>For a much more comprehensive look at "this" and "function invocation" read:
@@ -1046,7 +994,7 @@ Inheritence
 </div>
 
 <div class="slide">
-    <h2>Inheritance &lt; IE9</h2>
+    <h2>Inheritance</h2>
     <p>JavaScript uses a prototype-based inheritance model.</p>
      <pre><code class="prettyprint">var Car = function(){ };
 
@@ -1068,6 +1016,7 @@ console.log( fusion );</code></pre>
 <input type="button" data-run="inheritance1" value="Run">
 </div>
 
+
 <div class="slide">
     <h2>Inheritance</h2>
     <p>First we create a new constuctor function.</p>
@@ -1076,7 +1025,8 @@ console.log( fusion );</code></pre>
 //add properties to Car&#39;s Prototype
 Car.prototype = {
     wheels : 4, doors : 4,  manufacturer : &quot;&quot;
-};</code></pre>
+};
+</code></pre>
 </div>
 
 <div class="slide">
@@ -1085,42 +1035,37 @@ Car.prototype = {
      <pre><code class="prettyprint">var Fusion = function(){ }; 
 
 Fusion.prototype = new Car();
-Fusion.prototype.constructor = Fusion; //reset the constructor function
 </code></pre>
+<p>
+    Notice that we use <code class="prettyprint">Fusion.prototype = new Car()</code> and not:
+    <pre><code class="prettyprint">var Fusion = function(){ 
+    this.prototype = new Car();
+};</code></pre>
+</p>
+<p>Setting <code class="prettyprint">this.prototype</code> will just add a new property to each <strong>instance</strong> of Fusion.</p>
 </div>
 
 <div class="slide">
-    <h2>Inheritance >= IE9</h2>
-    <pre><code class="prettyprint">var Car = function(){ };
+    <h2>Inheritance</h2>
+    <p>Overriding an objects prototype also overrides a property called <code class="prettyprint">prototype.constructor</code>.</p>
+    <p>Its important to reset this property, otherwise the <code class="prettyprint">instanceof</code> operator won't work properly.</p>
+    <p><code class="prettyprint">instanceof</code> is used weather if a variables is an intance of a particular prototype.</p>
+    <pre><code class="prettyprint">Fusion.prototype.constructor = Fusion;
 
-    //add properties to Car&#39;s Prototype
-    Car.prototype = {
-        wheels : 4, doors : 4,  manufacturer : &quot;&quot;
-    };
+var fusion = new Fusion();
 
-    var Fusion = function(){ }; 
-
-    //returns a new object with the argument as it's prototype;
-    Fusion.prototype = Object.create( Car.prototype, {
-        model = 'sport';
-    } ); 
-    
-    Fusion.prototype.constructor = Fusion; //still need to reset the constructor
-
-    var fusion = new Fusion();
-
-    console.log( fusion );</code></pre>
-    <input type="button" data-run="inheritance2" value="Run">
+fusion instanceof Fusion //true</code></pre>
 </div>
 
 <div class="slide">
     <h2>What is a "Prototype"</h2>
     <p class="slide">A prototype is just an object. Functions and objects have a hidden link to an object that is it's prototype.</p>
+    <p class="slide">In some browsers the prototype object is exposed as <code class="prettyprint">__proto__ </code>.</p>
     <p class="slide">When a property is called the property is searched for on the object, then the objects prototype, then the prototype's prototype, etc</p>
     <p class="slide">JavaScript stops looking up the chain when it reaches Object.prototype</p>
 </div>
 
-
+<!--
 <div class="slide">
     <h2>Prototype's Members</h2>
     <p>Adding to an object's prototype link is "live".  This means that properties added to a prototype are immediately accessable by all existing instances.</p>
@@ -1139,7 +1084,7 @@ RealObject.prototype.iRule = function(){
 console.log( instanceOfRealObject.iRule() );
 console.log( anotherOfRealObject.iRule() );</textarea>
 </div>
-
+-->
 <!--
 <div class="slide">
     <h2>Prototype on native Objects</h2>
@@ -1320,6 +1265,35 @@ contacts.update();</code></pre>
 <input type="button" data-run="pubSub" value="Run">
 </div>
 
+<!--
+<div class="slide">
+    <h2>Prototype</h2>
+    <p>Don't confuse the prototype pattern with prototypical inheritance we talked about earlier!</p>
+    <p>The prototype pattern is a pattern where an object is used for the prototype of another object.</p>
+     <textarea id="code25" name="code" class="code" mode="javascript" style="display: none;" runnable="true">var motorcycle = {
+    wheels : 2,
+    engine : "250cc",
+    go : function(){ console.log( "Rumble rumble rumble." ); }
+};
+    
+var sportbike = {
+    engine: "1000cc",
+    go : function(){ console.log( "Waaaaaaaaa" ); },
+    fairings : "blue"
+};
+    
+for(var attr in motorcycle){
+    if( !sportbike[ attr ] ){
+        sportbike[ attr ] = motorcycle[ attr ];
+    }
+}
+
+console.log( sportbike );
+sportbike.go();
+motorcycle.go();</textarea>
+</div>
+-->
+
 <div class="slide">
     <h2>Design Patterns</h2>
     <p>Be sure to check out Addi Osmani's "Essential JavaScript Design Patterns" open source book at: <a href="https://github.com/addyosmani/essential-js-design-patterns" target="_blank">https://github.com/addyosmani/essential-js-design-patterns</a></p>
@@ -1347,6 +1321,13 @@ Resources
     </ul>
     <p>However I'd be remiss if I left out Douglas Crockford's "<a href="http://shop.oreilly.com/product/9780596517748.do" target="_blank">JavaScript: The Good Parts</a>".</p>
 </div>
+
+<div class="slide" id="giveaway">
+    <h2>Giveaway Time!</h2>
+    <p class="slide">In this presentation we created a "Robot" constructor function that took a name as a parameter.  What was the name of one of the robots we created?</p>
+    <p class="slide">Question 2 (just in case).  Name the 6 data types available in JavaScript.</p>
+</div>
+
 
 <div class="slide" id="questions">
     <h1>Questions?</h1>

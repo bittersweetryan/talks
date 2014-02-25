@@ -8,24 +8,31 @@ Everyone knows that managing and structuring Async and Evented heaving isn't muc
  * bla
 
 ####Functional Primer (At least as much as you need to know for RX).
- * Avoid State
+
+**Why Functional**
+
+ * Avoid State changes
+ 	* less bugs
+ 	* easier to read (you dont need to remember everything that happened to `var a` to determine its value)
  * Use functions to transform data and return NEW data
-
-####What is Reactive JavaScript?
-
- * builds on functional constructs
- * New datatypes Observable & Observer
- * The Observer Pattern + Iterator Pattern = Reactive Programming
- * When the Observable gets data it pushes it to its Observers
+ * chain functions together to reate data "streams"
  
- 
-####Why Reactive
+**Commonly used transformation functions**
 
- * take advantage of multiple cores
- * normalize async data & events
- * avoid state
+ * map( projectionFunction ) transforms data & returns new values
+ 	* differs from forEach 
+ 	 * `example`
+ * filter( predicateFunction )
+ 	* removes items from an array that make the predicate function return false
+ 	 * `example`
+ * reduce( combinator, initialValue )
+ 	* uses the information from each iteration to calculate the  	current value
+ 	* `example`
+ * mergeAll
+ 	* reduces the level of nesting by 1
+ 	 * `example`
  
-####Observable vs. Promise vs. EventEmitter in Node
+####Observable vs. Promises vs. Event Callbacks
 
  * can retry
  * hot or cold datasource
@@ -52,27 +59,7 @@ When using RX it's easy to get Observables that contain arrays of other Observab
  * concatAll
  * switchLatest
  * Example
-
-####The 5 Pillars of Functional (with a Reactive Twist)
-
- * Map
- * Reduce & Scan
- * Filter
- * Zip
- * concatAll
  
-**Map**
-
- * Map _transforms_ data in an observable collection (e.g give me an item in an )
- * Say you wanted to take an  
- 
-**Reduce / Scan**
-
-**Filter**
-
-**Zip**
-
-**Concat All**
 
 ####Combining the Pillars with Observable Instances
 
@@ -81,6 +68,7 @@ When using RX it's easy to get Observables that contain arrays of other Observab
  * takeUntil
  * take
  * skip
+ * defaultIfEmpty
 
 ####UI Patterns in RX
 

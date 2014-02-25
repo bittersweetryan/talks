@@ -81,28 +81,7 @@ $(function(){
 			//set the Fusion's prototype to a new instance of car
 			Fusion.prototype = new Car();
 
-			Fusion.prototype.constructor = Fusion; //reset the constructor
-
-			var fusion = new Fusion();
-
-			console.log(fusion);
-			console.log(fusion.wheels);
-		},
-
-		inheritance2 : function(){
-			var Car = function(){ };
-
-			//add properties to Car's Prototype
-			Car.prototype = {
-				wheels : 4, doors : 4,  manufacturer : ""
-			};
-
-			var Fusion = function(){ };
-
-			//set the Fusion's prototype to a new instance of car
-			 Fusion.prototype = Object.create( Car.prototype ); 
-
-			Fusion.prototype.constructor = Fusion; //reset the constructor
+			Fusion.prototype.constructor = Fusion; //reset the R8's constructor
 
 			var fusion = new Fusion();
 
