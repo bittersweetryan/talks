@@ -11,7 +11,6 @@ var searchResultsSets = keyups.
 			$.getJSON( 'https://api.github.com/search/repositories?q=' + input.value + 'language:javascript' )
 		); 
 	}).
-	share().
 	switchLatest().
 	map( function( results ){
 		return _.first( results.items, 10 ).map( function( item ){
@@ -34,7 +33,7 @@ var noResults = keyups.
 animateOuts = searchResultsSets.map( 
 	function( resultSet ){
 		return new SlideableDiv( 
-			document.querySelector( '.search-results.visible' ),
+			document.querySelector( '.search-results.visible' ) || document.querySelector( '.search-results.previous' ),
 			'out'
 		);
 	}
@@ -42,7 +41,7 @@ animateOuts = searchResultsSets.map(
 
 animateIns = searchResultsSets.map( 
 	function( resultSet ){
-		var hiddenDiv = document.querySelector( '.search-results.next' );
+		var hiddenDiv = document.querySelector( '.search-results.next.off-right' );
 
 		addResultsToDiv( resultSet, hiddenDiv );
 
@@ -69,29 +68,39 @@ function addResultsToDiv( results, div ){
 function SlideableDiv( div, direction ){
 	return Observable.create( function( observer ){
 
-		console.log( direction );
-
-		if(  !div || ( div.classList.contains( '.hidden' ) && direction === 'out' ) ) {
-			onComplete();
-			return observer.onNext();
-		} 
-
 		if( direction === 'in' ){
+			
+			div.classList.remove( 'hidden' );
 			div.classList.remove( 'off-right' );
 			div.classList.remove( 'next' );
-			div.classList.remove( 'hidden' );
 			div.classList.add( 'visible' );
 		}
 		else{
+
+			console.log( div, 'out' );
 			div.classList.add( 'hidden' );
 			div.classList.add( 'off-left' );
+			div.classList.add( 'next' );
+			div.classList.remove( 'previous' );
+			
 		}
 
-		div.addEventListener( 'transitionend', onComplete);
-		div.addEventListener( 'webkitAnimationEnd', onComplete);
+		if( div.classList.contains( 'hidden' ) && direction === 'out' ){
+			onComplete();
+		}
+		else{	
+			div.addEventListener( 'transitionend', onComplete);
+			div.addEventListener( 'webkitAnimationEnd', onComplete);
+		}
 
 		function onComplete(){
 			console.log( 'such wow' );
+			
+			if( direction === 'out' ){
+				div.classList.remove( 'off-left' );
+				div.classList.add( 'off-right' );
+			}
+
 			observer.onCompleted( );
 		}
 						
