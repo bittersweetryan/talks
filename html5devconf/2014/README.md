@@ -1,5 +1,7 @@
 #Stop Making Excuses And Start Testing Your JavaScript
 
+###Add put the assertion in your callback!####
+
 ###About Me
 
 ###What We'll Cover
