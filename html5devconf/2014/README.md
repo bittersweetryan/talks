@@ -1,6 +1,7 @@
 #Stop Making Excuses And Start Testing Your JavaScript
 
 ###Add put the assertion in your callback!####
+###Errors get swallowed up in promise callbacks, use the finally or .error functions!####
 
 ###About Me
 
