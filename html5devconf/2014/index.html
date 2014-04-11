@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Stop Making Excuses And Start Testing Your JavaScript</title>
+    
+    <meta name="description" content="A presentation on JavaScript fundamentals for ColdFusion developers.">
+    <meta name="author" content="Ryan Anklam">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+    
+
+    <!-- Core and extension CSS files -->
+    <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="core/deck.core.css">
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+    <link rel="stylesheet" href="extensions/codemirror/deck.codemirror.css">
+
+    <!-- Theme CSS files (menu swaps these out)  -->
+    <link rel="stylesheet" id="style-theme-link" href="themes/style/granite.css">
+    <link rel="stylesheet" id="transition-theme-link" href="themes/transition/horizontal-slide.css">
+    
+    <!-- Custom CSS just for this page -->
+    <link rel="stylesheet" href="introduction.css">
+    
+    <link rel="stylesheet" href="extensions/codemirror/themes/default.css">
+
+</head>
+
+<body class="deck-container" onload="prettyPrint()">
+
+<!-- 
+Title
+ -->
+<section class="slide">
+  <ul>
+    <li>water</li>
+    <li>open projects</li>
+    <li>open terminal</li>
+    <li>command + option + 8</li>
+  </ul>
+</section>
+
+<section class="slide" id="introslide">
+    <h1>Stop Making Excuses and Start Testing Your JavaScript!</h1>
+</section>
+
+<section class="slide">
+<h2>About Me</h2>
+    <ul>
+        <li class="slide">Senior UI Engineer at Netflix (we're hiring).</li>
+        <li class="slide">Open source lover.</li>
+        <li class="slide">bittersweetryan (twitter, github, stackoverflow, et al)</li>
+    </ul>
+</section>
+
+<section class="slide">
+<h2>About You</h2>
+    <ul>
+        <li class="slide">Have good working knowledge of JavaScript.</li>
+        <li class="slide">Are just getting started with JavaScript Unit Testing.</li>
+        <li class="slide">You already know some unit testing basics.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>What We'll Cover</h2>
+    <ul>
+        <li class="slide">Adding Unit Testing to Your Project</li>
+        <li class="slide">Writing Testable JavaScript</li>
+        <li class="slide">Solving Common Testing Issues
+          <ul>
+            <li class="slide">Testing the DOM</li>
+            <li class="slide">Testing AJAX Requests</li>
+            <li class="slide">Testing ASYNC code</li>
+          </ul>
+        </li>
+        <li class="slide">Test automation</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>What we won't cover</h2>
+    <ul>
+        <li class="slide">Testing your code outside of the browser (Node)</li>
+        <li class="slide">Why test JavaScript (if you are here I'm guessing you know that already)</li>
+        <li class="slide">Unit testing basics</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Before we begin</h2>
+    <p>Throughout this presentation I mix code samples from differnet frameworks like Jasmine, Mocha, and qUnit.</p>
+    <p>I try to point out on the slide what framework I'm showing.</p>
+</section>
+
+<section class="slide">
+    <h1>Getting Started</h1>
+</section>
+
+<section class="slide">
+    <h2>Picking a Testing Framework</h2>
+    <p>There are a lot of things to consider before you commit to a framework (You should be using it a lot so it's important to pick the right one).</p>
+    <ul>
+        <li class="slide">BDD or TDD</li>
+        <li class="slide">Testing Environment - Browser? Node? Both?</li>
+        <li class="slide">Do you <strong>NEED</strong> to test HTML?</li>
+        <li class="slide">Do you use modules (AMD, CommonJS)?</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>BDD or TDD</h2>
+    <p>This is an important decision, try both and see what one feels best to you.</p>
+    <div class="slide">
+        <div style="display:inline-block; width: 40%; vertical-align:top">
+            <h4>BDD</h4>
+            <ul>
+                <li><code>describe</code></li>
+                <li><code>expect</code></li>
+                <li><code>it</code></li>
+            </ul>
+        </div>
+        <div style="display:inline-block; width: 40%; vertical-align:top">
+            <h4>TDD</h4>
+            <ul>
+                <li><code>assert</code></li>
+                <li><code>test</code></li>
+                <li><code>ok</code></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>BDD Frameworks</h2>
+    <ul>
+        <li>Jasmine - <a href="http://pivotal.github.io/jasmine">http://pivotal.github.io/jasmine</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>TDD Frameworks</h2>
+    <ul>
+        <li>QUnit - <a href="http://www.qunit.com">http://www.qunit.com</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>BDD or TDD Frameworks</h2>
+    <ul>
+        <li>Mocha - <a href="http://visionmedia.github.io/mocha">http://visionmedia.github.io/mocha</a></li>
+        <li>The Intern - <a href="http://theintern.io">http://theintern.io</a></li>
+        <li>Buster.JS - <a href="http://busterjs.org">http://busterjs.org</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1>Add Testing To Your Project</h1>
+</section>
+
+<section class="slide">
+    <h2>Setup Your Project</h2>
+    <ul>
+        <li class="slide">Create a directory for your tests.</li>
+        <li class="slide">Download source for your preferred framework &amp; place in tests dirdirctory.</li>
+        <li class="slide">Add source files to your test runner (a sample runner is included with most frameworks) using &lt;script&gt; tags.</li>
+        <li class="slide">Create test files.</li>
+        <li class="slide">Add test files to your runner using &lt;script&gt; tags.</li>
+        <li class="slide">Open your test runner in the browser.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Samples</h2>
+    <ul>
+        <li class="slide">BDD with Mocha</li>
+        <li class="slide">TDD with qUnit</li>
+        <li class="slide">This is why a lot of people start with qUnit</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Your first test - source</h2>
+<pre class="prettyprint">var adder = function( ){
+  var args = 
+    Array.prototype.slice.call(arguments);
+  
+  return args
+    .reduce( function( prev, curr ){
+        return prev + curr;
+    }, 0 );
+};</pre>
+</section>
+
+<section class="slide">
+    <h2>BDD Style (Mocha)</h2>
+<pre class="prettyprint">describe( 'adder', function(){
+  it( 'should return zero when no 
+    arguments are passed in', 
+    function(){
+      expect( adder() ).to.equal( 0 );
+  } );
+
+  it( 'should add two numbers', 
+    function(){
+      expect( adder( 1,2 ) )
+        .to.equal( 3 );
+  } );
+
+  it( 'should ignore non-numeric input', 
+    function(){
+      expect( adder(1,2,a) ).to.equal( 3 );
+  } );
+} );</pre>
+    <p>Describe + it should form a sentence.</p>
+    <a href="sample/bdd-tests/runner.html" target="_blank">Run Sample</a>
+</section>
+
+<section class="slide">
+    <h2>TDD Style  (qUnit) </h2>    
+<pre class="prettyprint">test( 'test adder', function(){
+  equal( adder(), 0, 'adder should 
+    return zero when no arguments are 
+    passed in');
+
+  ok( adder( 1,3 ) === 4, 
+    'adder should add two numbers');
+
+  equal( adder( 1,2,a ), 3, 
+    'adder should igonre non numeric 
+    input' );
+
+});</pre>
+    <a href="sample/tdd-tests/runner.html" target="_blank">Run Sample</a>
+</section>
+
+<section class="slide">
+    <div class="vcenter">
+    <h2>Yeah, but my code doesn't look like that!</h2>
+    </div>
+</section>
+
+<section class="slide">
+    <h1>Writing Testable JavaScript</h1>
+</section>
+
+<section class="slide">
+      <h2>This is not testable</h2>
+<pre class="prettyprint">$(document).ready(function(){
+  var div1 = $('.widget'),
+      itemCount = 
+        getItemCount( '.item' );
+
+  div1.on('click',function(){
+    ...
+  });
+
+  function getItemCount( selector ){
+    return $( selector ).length;
+  }
+});</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Why not?</h2>
+      <ul>
+        <li class="slide">
+          All the code is hidden in the <code class="prettyprint">$(document).ready()</code> closure.
+        </li>
+        <li class="slide">
+          The event handler is anonymous function passed into the <strong>on</strong> callback.
+        </li>
+        <li class="slide">
+            It's trying to do too many things ( setup a click handler, callback, and holds a utility fuction ).
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Moar Testable</h2>
+<pre class="prettyprint">var app = {
+  init : function( el, countEl ){
+    this.el = el;
+    this.countEl = countEl;
+
+    this.el.on(
+        'click', this.handleDivClick
+     );
+
+     this.itemCount = 
+        this.getItemCount();
+  },
+  getItemCount : function( ){
+    return this.countEl.length;
+  },
+  handleDivClick : function( e ){
+    ...
+  }
+};
+
+$(document).ready( function(){
+  app.init( $('.widget'), $('.item') );
+});
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Moar Testable</h2>
+      <p>Now we can test our code to make sure:</p>
+      <ul>
+        <li class="slide">init set the click handler by checking if the element responds to click events or triggering a click and spying on the callback.</li>
+        <li class="slide">init set the item count by using a spy</li>
+        <li class="slide">getItemCount() returns what we expect</li>
+        <li class="slide">handleDivClick() does what we want</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+        <h1>A few tips on writing testable JavaScript</h1>
+    </section>
+
+<section class="slide">
+    <h2>Use Named Functions Instead of Anonymous Functions</h2>
+    <p>Instead of:</p>
+<pre class="prettyprint">('ul').on( 'click', 'ul', function( e ){
+    //handle click
+}</pre>
+    <p>Do this:</p>
+    <pre class="prettyprint">('ul').on( 'click', 'ul', handleItemClick )
+
+function handleItemClick( e ){
+    //handle click
+}</pre>
+</section>
+
+<section class="slide">
+    <h2>Break Apart Large Functions into Smaller Ones</h2>
+<pre class="prettyprint">function setupWidget(){
+  var $element = $('.my-widget');
+  
+  $element.removeClass( 'inactive' )
+    .addClass('active');
+
+  $element.on( 'click', function(){
+     if( $element.is( ':visible' ) ){
+          //hide element
+     }
+     else{
+          //show element
+     }
+  }); 
+}</pre>
+</section>
+
+<section class="slide">
+<h2>Better</h2>
+<pre class="prettyprint">function setupWidget(){
+  var $element = getElement();
+  setStyle( $element );
+  $element.on( 'click', handleClick );
+}
+
+function setStyle( $element ){
+  $element.removeClass( 'inactive' )
+    .addClass('active');
+}
+
+function getElement(){
+  return $('.my-widget');
+}
+
+function handleClick(  ){
+      $(this).toggle();
+  });
+}</pre>
+</section>
+
+<section class="slide">
+  <h2>Keep DRY in mind when writing tests</h2>
+  <ul>
+    <li class="slide">
+      Extract code used in multiple tests into a helper function.
+    </li>
+    <li class="slide">
+      All (good) frameworks have <strong>setup tests</strong> and <strong>clean up tests</strong> methods. Use them.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Much more information</h2>
+  <div class="vcenter">
+    <p>Rebecca Murphey has an excellent presentation on "Writing Testable JavaScript" here: <a href="http://www.youtube.com/watch?v=OzjogCFO4Zo" target="_blank">http://goo.gl/a7xXtw</a></p>
+  </div>
+</section>
+
+<section class="slide">
+  <h1>Solving Common Testing Issues</h1>
+</section>
+
+<section class="slide">
+    <h1>Spies</h1>
+</section>
+
+<section class="slide">
+    <h2>Spies</h2>
+    <p>Spies in JavaScript unit tests are used to do things that mocking and stubbing do in traditional frameworks.</p>
+    <ul>
+        <li>Jasmine comes with very good built in spying functionality.</li>
+        <li>Sinon.js (<a href="http://sinonjs.org/">http://sinonjs.org/</a>) provides it as an add-on for other libraries.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Spies Acting As Mocks</h2>
+    <p>Mocks verify that a function or method has been called.</p>
+<pre class="prettyprint">var callbackSpy = jasmine.createSpy();
+
+toggleElement( callbackSpy );
+
+expect( callbackSpy )
+  .toHaveBeenCalled();</pre>
+</section>
+
+<section class="slide">
+    <h2>Spies acting as Stubs</h2>
+    <p>Stubs simulate a function that returns data</p>
+<pre class="prettyprint">var getUsersSpy = sinon.spy().returns([
+  { user },
+  { user }
+]);
+
+usersView.getUsers = getUsersSpy;
+//this function wants some data back from getusers
+usersView.initialize();</pre>
+</section>
+
+<section class="slide">
+    <h2>Stubs</h2>
+<pre class="prettyprint">var UsersView = Backbone.View.extend({
+  initialize: function(){
+      var users = getUsers();
+  },
+  getUsers: function(){
+      return this.model.fetch();
+  }
+});</pre>
+</section>
+
+<section class="slide">
+    <h1>Testing The DOM</h1>
+</section>
+
+<section class="slide">
+    <h2>Spy on Library Functions</h2>
+    <p>If you are using jQuery for DOM manipulation an easy way to verify that something happened is to spy on jQuery's functions.</p>
+    <p>jQuery's functions live on the <code class="prettyprint">jQuery.fn</code> object.</p>
+</section>
+
+<section class="slide">
+    <h2>Spy on Library Functions</h2>
+<pre class="prettyprint"> function setupClick( $element ){
+  $element.on( 'click', function(){
+      $element.toggle();
+  });
+}</pre>
+</section>
+
+<section class="slide">
+    <h2>Spying on jQuery</h2>
+    <p>Using Jasmine</p>
+<pre class="prettyprint">it( 'should toggle the element', 
+  function(){
+    var $el = $('.my-widget');
+    spyOn( jQuery.fn, 'toggle' );
+    setupClick( $el );
+    $el.trigger( 'click' );
+
+    expect( jQuery.fn.toggle )
+      .toHaveBeenCalled();
+});</pre>
+</section>
+
+<section class="slide">
+    <h2>Fixtures</h2>
+    <p>Fixtures are snippets of HTML that are inserted before each test and reset after each test.</p>
+    <ul>
+        <li>Supported by qUnit out of the box</li>
+        <li>Supported by Jasmine with the Jasmine - jQuery plugin</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>qUnit Fixtures</h2>
+    <p>To add fixtures to qUnit simply include your HTML inside of the <code>qunit-fixture</code> element on the test runner.</p>
+<pre class="prettyprint">&lt;div class=&quot;qunit-fixture&quot;&gt;
+   &lt;div class=&quot;container row&quot;&gt;
+       &lt;div class=&quot;twelve columns&quot;&gt;
+           &lt;span class=&quot;message&quot;&gt;&lt;/span&gt;
+       &lt;/div&gt;
+   &lt;/div&gt;     
+&lt;/div&gt;</pre>
+</section>
+
+<section class="slide">
+    <h2>Jasmine</h2>
+<p>Fixtures in Jasmine are provided by the Jasmine jQuery library.</p>
+<p class="slide">Three Steps:</p>
+<ol>
+    <li class="slide">create fixtures as seprate HTML files</li>
+    <li class="slide">Configure Jasmine to use and load fixtures</li>
+    <li class="slide">Load fixtures into tests.</li>
+</ol>
+</section>
+
+<section class="slide">
+  <h2>Fixture Example</h2>
+  <p>Setup</p>
+  <pre class="prettyprint">jasmine.getFixtures().fixturesPath = 'fixtures/html';</pre>
+  <p>Load</p>
+  <pre class="prettyprint">beforeEach( function(){
+    loadFixtures('myfixture.html')
+  } );</pre>
+</section>
+
+<section class="slide">
+    <h2>Jasmine jQuery</h2>
+    <p>Jasmine jQuery (<a href="https://github.com/velesin/jasmine-jquery">https://github.com/velesin/jasmine-jquery</a>) makes testing the DOM a bit easier.</p>
+<pre class="prettyprint">
+expect( $('.message') ).toHaveClass( 'alert' );
+expect( $('#firstItem' ) ).toBeVisible();
+expect( $('.message' ) ).toHaveText( '...' );
+</pre>
+</section>
+
+<section class="slide">
+    <h1>Testing AJAX</h1>
+</section>
+
+<section class="slide">
+    <h2>Sinon To The Rescue</h2>
+    <p>Sinon has two great features for testing AJAX:</p>
+    <ul>
+        <li class="slide">FakeServer (will return data)</li>
+        <li class="slide">FakeXMLHttpRequest (will capture requests)</li>
+    </ul>
+    <p class="slide">FakeServer is also good for development when you don't yet have a server.</p>
+</section>
+
+<section class="slide">
+    <h2>FakeServer (from sinon docs)</h2>
+  <pre class="prettyprint">var xhr, requests;
+
+before(function () {
+    xhr = sinon.useFakeXMLHttpRequest();
+    requests = [];
+    xhr.onCreate = function (req) { requests.push(req); };
+});
+
+after(function () {
+    xhr.restore();
+});
+
+it("makes a GET request for todo items", function () {
+    getTodos(42, sinon.spy());
+
+    assert.equals(requests.length, 1);
+    assert.match(requests[0].url, "/todo/42/items");
+});</pre>
+</section>
+
+<section class="slide">
+    <h2>FakeXMLHttpRequest (from sinon docs)</h2>
+  <pre class="prettyprint">var server;
+
+before(function () { 
+  server = sinon.fakeServer.create(); 
+});
+
+after(function () { 
+  server.restore(); 
+});
+
+it("calls callback with deserialized data", function () {
+    getTodos();
+
+    // This is part of the FakeXMLHttpRequest API
+    server.requests[0].respond(
+        200,
+        { "Content-Type": "application/json" },
+        JSON.stringify([{ id: 1, text: "Provide examples", done: true }])
+    );
+
+    assert(callback.calledOnce);
+});</pre>
+</section>
+
+<section class="slide">
+  <h1>Testing Async Code</h1>
+</section>
+
+<section class="slide">
+    <h2>ASYNC Code</h2>
+<pre class="prettyprint">
+
+function updateTimer( callback ){
+  var to = window.setTimeout( function(){
+      var msg = document.querySelector( 
+                  '#messageDiv' ),
+          btn = document.querySelector( 
+                  '#butotn' );
+
+      msg.innerHTML( '...' );
+      btn.disabled = false;
+      callback();
+      window.clearTimeout( to );
+  }, 1000);
+}</pre>
+</section>
+
+<section class="slide">
+    <h2>Testing updateTimer</h2>
+<pre class="prettyprint">it( 'should invoke the callback', function(){
+  var spy = jasmine.createSpy( 'callback' );
+
+  updateTimer( spy ); //fires and immediately returns 
+
+  expect( spy.toHaveBeenCalled() ); //not called yet
+} );</pre>
+</section>
+
+<section class="slide">
+    <h2>Fixed with Jasmine</h2>
+
+<pre class="prettyprint">it( 'should invoke the callback', function(){
+  var spy = jasmine.createSpy( 'callback' );
+
+  runs( function(){
+      updateTimer( spy );  
+  })
+  
+  waits( 1000 );
+
+  runs( function(){
+      expect( spy ).toHaveBeenCalled();
+  });
+} );</pre>
+</section>
+
+<section class="slide">
+    <h2>Fixed with Mocha</h2>
+<pre class="prettyprint">it( 'should invoke the callback', function( done ){
+  updateTimer( done ); //will wait for done call 
+
+  expect( ... ) //check button is disabled
+} );</pre>
+</section>
+
+<section class="slide">
+    <h2>Fixed with qUnit</h2>
+<pre class="prettyprint">asyncTest( 'should invoke the callback', function(){
+  var spy = sinon.spy(); 
+
+  updateTimer( spy );
+
+  setTimeout( function(){
+    ok( spy.called );
+    start(); //tells qUnit to run next test
+  }, 1000 );
+})</pre>
+</section>
+
+<section class="slide">
+    <h1>Test Automation</h1>
+</section>
+
+<section class="slide">
+  <h2>Grunt</h2>
+  <ul>
+      <li>JavaScript Task Runner</li>
+      <li>Plugins for many testing frameworks</li>
+      <li>Can create different targets to run different tests (unminified/minified)</li>
+      <li>Command line based tool that runs in Node.js</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Grunt</h2>
+<h1>Demo</h1>
+</section>
+
+<section class="slide">
+    <h2>Testem</h2>
+    <p>Testem is a node app that will automatically run tests in multiple browsers.</p>
+<pre class="prettyprint">npm install -g testem</pre>
+</section>
+
+<section class="slide">
+  <h2>Testem</h2>
+  <h1>Demo</h1>
+</section>
+
+<section class="slide">
+  <h1>Questions?</h1>
+</section>
+
+<section class="slide">
+  <div class="vcenter">
+    <h2>
+      <a href="http://bittersweetryan.github.io/stop-making-excuses-and-start-testing-your-javascript">http://bittersweetryan.github.io/stop-making-excuses-and-start-testing-your-javascript</a>
+    </h2>
+  </div>
+</section>
+
+<form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label>
+    <input type="number" name="slidenum" id="goto-slide">
+    <input type="submit" value="Go">
+</form>
+
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+</p>
+
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+    <script src="jquery-1.7.min.js"></script>
+    <script src="modernizr.custom.js"></script>
+    
+   
+    <script src="extensions/codemirror/codemirror.js"></script>
+
+    <!-- Syntax highlighting Modes -->
+
+    <!-- javascript -->
+ 
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<script src="extensions/codemirror/mode/javascript/javascript.js"></script>
+<script src="extensions/codemirror/mode/xml/xml.js"></script>
+<script src="extensions/codemirror/mode/css/css.js"></script>
+<script src="extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+<script src="introduction.js"></script>
+
+<!-- enable codemirror plugin -->
+<script src="extensions/codemirror/deck.codemirror.js"></script>
+
+</body>
+</html>
