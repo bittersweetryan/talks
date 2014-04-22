@@ -1,4 +1,0 @@
-{
-	"src_files" : [ "spec/*", "src/*"],
-	"launch_in_dev" : [ "Chrome", "Firefox", "PhantomJS", "Safari" ]
-}

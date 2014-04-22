@@ -18,7 +18,11 @@
  * Hello, Router
  * Views
     * Handlebars
+      * action
+      * linkTo
+    * Heiachary
     * Special Helpers
+      * Outlet
     * Data returns promises that tell the view to render when fulfilled
  * Router Object
     * How it relates to a view
