@@ -16,6 +16,10 @@ describe( 'todos', function(){
         expect(todos.getData() instanceof Array).toBeTruthy();
     });
     
+    it('should have a addItem function', function(){
+        
+    });
+    
     it('should have a addItems function', function(){
         spyOn( todos, 'addItem' );
         todos.addItems( ['a','b','c'] );
