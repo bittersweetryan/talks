@@ -1,4 +1,5 @@
 {
     "src_files" : [ "jquery.js", "todos-better.js", "tests/spec/todoSpec.js" ],
-    "launch_in_dev" : [ "chrome", "firefox", "PhantomJS" ]
+    "launch_in_dev" : [ "PhantomJS" ],
+    "framework" : "jasmine2"
 }

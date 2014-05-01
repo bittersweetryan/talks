@@ -1,43 +1,47 @@
 //moar
-var App = function( $list, $input ){
+var Todos = function( $list, $input ){
   this.$list = $list;
   this.$input = $input;
 };
 
-App.prototype.getData = function(){
-  return [
-    { id : 1, name : "One", done : false},
-    { id : 2, name : "Two", done : true},
-    { id : 3, name : "Three", done : false}
-  ];
+Todos.prototype.getData = function( callback ){
+    setTimeout( function(){
+        callback( [
+          { id : 1, name : "One", done : false},
+          { id : 2, name : "Two", done : true},
+          { id : 3, name : "Three", done : false}
+        ] );
+    }, 300 );
 };
 
-App.prototype.addItems = function( items ){
+Todos.prototype.addItem = function( name ){    
+  this.$list.append( '<li class="todo-item">' + name + '</li>');
+};
+
+Todos.prototype.addItems = function( items ){
   items.forEach( function( item, index){
       this.addItem( item.name );
     }, this );
 };
 
-App.prototype.addItem = function( name ){
-  this.$list.append( '<li class="todo-item">' + name + '</li>');
-};
 
-App.prototype.handleKeypress = function( e ){
-  var $input = $(e.target);
-  
+Todos.prototype.handleKeypress = function( e ){
+    
   if( e.which === 13 ){
-    this.addItem( $input.val() );
-    $input.val( '' );
+    this.addItem( this.$input.val() );
+    this.$input.val( '' );
   }
 };
 
-App.prototype.init = function(){
+Todos.prototype.init = function(){
   this.$input.on( 'keyup', $.proxy( this.handleKeypress, this ) );
   
-  this.addItems( this.getData() );
+  this.getData( this.addItems );
 };
 
+/*
 $(function(){
-   var app = new App( $( '.todo-list' ), $( '.new-todo' ) );
+   var todos = new Todos( $( '.todo-list' ), $( '.new-todo' ) );
    app.init();
 });
+*/
