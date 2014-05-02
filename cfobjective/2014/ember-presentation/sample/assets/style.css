@@ -1,0 +1,73 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+    font-family: Arial, sans-serif; 
+    padding: 0;
+    margin: 0;
+}
+
+*{
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+header{
+  background: #FFF;  
+  margin: 0;
+  padding-left: 2em;
+}
+
+.attending-sessions{
+  float: right;
+  margin-right: 1em; 
+  margin-top: 1em;
+}
+
+.content{
+  padding: 0 2em;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.session-item{
+  padding: 1em .5em;
+}
+
+nav{
+  background: #94D2EB;
+  padding: .5em;
+}
+
+nav>ul{
+  padding: 1em 2em;
+}
+
+.nav-item{
+  display: inline-block;
+  margin: 0 1em 0 0;
+}
+
+.nav-item>a{
+  color: black;
+}
+
+.nav-item>.active{
+  font-weight: bold;
+}
+
+.nav-item>a:visited{
+  color: black;
+}
+
+nav>a{
+  color:white;
+}
+
+button{
+  border: 1px solid #CCC;
+  padding: .5em;
+}
