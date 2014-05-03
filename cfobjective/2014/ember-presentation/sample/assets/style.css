@@ -104,6 +104,10 @@ nav>a{
   margin-left: 10em;
 }
 
+.attending{
+  color: #1CA3D9;
+}
+
 .button{
   border: 1px solid #999;
   padding: .5em 1em;

@@ -36,7 +36,7 @@
         </script>
 
         <script type="text/x-handlebars" data-template-name="session">
-            <h2>
+            <h2 {{bind-attr class=goingClass}}>
                 {{model.name}}{{#if model.going}}&nbsp;(Going){{/if}}
             </h2>
             <p>{{description}}</p>
