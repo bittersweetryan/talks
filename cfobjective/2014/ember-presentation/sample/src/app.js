@@ -1,8 +1,6 @@
 App = Ember.Application.create();
 App.ApplicationAdapter = DS.FixtureAdapter;
 
-
-
 App.Router.map(function() {
   this.resource( 'sessions', { path : '/' }, function(){
   	this.route( 'add' );
