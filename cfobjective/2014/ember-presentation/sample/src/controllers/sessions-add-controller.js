@@ -9,8 +9,17 @@ App.SessionsAddController = Ember.ObjectController.extend({
 		
 			this.store.find( 'speaker', this.get( 'speaker' ).id )
 				.then( function( speaker ){
+
 					session.set('speaker', speaker );
-				} );
+					return speaker.get( 'sessions' );
+				} )
+				.then( function( sessions ){
+					
+					sessions.pushObject( session );
+				} );;
+
+			this.transitionToRoute('session',session);
+
 		}
 	}
 });

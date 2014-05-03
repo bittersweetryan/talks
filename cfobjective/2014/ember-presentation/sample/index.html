@@ -17,13 +17,21 @@
             </header>
             <nav>
                 <ul>
-                    <li class="nav-item">{{#link-to 'sessions'}}Home{{/link-to}}</li>
+                    <li class="nav-item">{{#link-to 'index'}}Home{{/link-to}}</li>
+                    <li class="nav-item">{{#link-to 'sessions'}}Sessions{{/link-to}}</li>
                     <li class="nav-item">{{#link-to 'speakers'}}Speakers{{/link-to}}</li>
-                    <li class="nav-item">{{#link-to 'sessions.add'}}Add Session{{/link-to}}</li>
                 </ul> 
             </nav>
             <div class="content">
                 {{outlet}}
+            </div>
+        </script>
+    
+        <script type="text/x-handlebars" data-template-name="index">
+            <div class="welcome>"
+                <p class="welcome-message">
+                    This is an app to show off some of what is cool in Ember.js
+                </p>
             </div>
         </script>
 
@@ -32,7 +40,7 @@
                 {{model.name}}{{#if model.going}}&nbsp;(Going){{/if}}
             </h2>
             <p>{{description}}</p>
-            <button {{action 'going' this}}>I'm {{#if going}}Not{{/if}} Going</button>
+            <button {{action 'going' this}} class="button">I'm {{#if going}}Not{{/if}} Going</button>
             {{speaker-bio name=speaker.fullName bio=speaker.bio}}
         </script>
 
@@ -40,33 +48,38 @@
             <div class="attending-sessions">
                 You are going to <b>{{attending}}</b> sessions.
             </div>
-            <ul>
+            <ul class="session-list">
                 {{#each item in model}}
                 <li class="session-item">{{#link-to 'session' item}}{{item.name}}{{#if item.going}}&nbsp;(Going){{/if}}{{/link-to}}</li>
                 {{/each}}
             </ul>
+            {{#link-to 'sessions.add' class="button"}}Add Session{{/link-to}}
         </script>
 
         <script type="text/x-handlebars" data-template-name="sessions/add">
-            <div>
-                <label for="name">Name</label> {{view Ember.TextField value=name}}
-            </div>
-            <div>
-                <label for="description">Description</label> {{view Ember.TextArea value=description}}
-            </div>
-            <div>
-                <label for="speaker">Speaker</label> {{view Ember.Select content=speakers
-                                                                         optionLabelPath="content.fullName"
-                                                                         optionValuePath="content.id"
-                                                                         prompt="Select Speaker..."
-                                                                         selection=speaker }}
-            </div>
-            <div>
-                <label for="track">Track</label> {{view Ember.Select content=tracks
-                                                                     selection=track
-                                                                     prompt="Select Track..."  }}
-            </div>
-            <button {{action 'addSession'}}>Add Session</button>
+            <section class="session-form">
+                <div class="form-row">
+                    <label for="name">Name</label> {{view Ember.TextField value=name class="big-input"}}
+                </div>
+                <div class="form-row">
+                    <label for="description">Description</label> {{view Ember.TextArea value=description class="big-input big-input-textarea"}}
+                </div>
+                <div class="form-row">
+                    <label for="track">Track</label> {{view Ember.Select content=tracks
+                                                                         selection=track
+                                                                         prompt="Select Track..."   
+                                                                         class="big-input big-input-select"}}
+                </div>
+                <div class="form-row">
+                    <label for="speaker">Speaker</label> {{view Ember.Select content=speakers
+                                                                             optionLabelPath="content.fullName"
+                                                                             optionValuePath="content.id"
+                                                                             prompt="Select Speaker..."
+                                                                             selection=speaker  
+                                                                             class="big-input big-input-select"}}
+                </div>
+                <button {{action 'addSession'}} class="button">Add Session</button>
+            </section>
             <section class="session-info">
                 <h1>{{name}}</h1>
                 <p>{{description}}</p>
@@ -79,7 +92,7 @@
             <h1>Speakers</h1>
             {{#each item in model}}
             {{#with item}}
-                {{speaker-bio name=fullName bio=bio}}
+                {{speaker-bio name=fullName bio=bio sessions=sessions}}
             {{/with}}
             {{/each}}
         </script>
@@ -90,6 +103,14 @@
                 <section class="speaker-description">
                     {{bio}}
                 </section>
+                {{#if sessions}}
+                    <h2>Sessions</h2>
+                    <ul>
+                    {{#each session in sessions}}
+                        <li>{{session.name}}</li>
+                    {{/each}}
+                    </ul>
+                {{/if}}
             </article>
         </script>
 
