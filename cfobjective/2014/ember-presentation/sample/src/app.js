@@ -1,8 +1,10 @@
 App = Ember.Application.create();
-App.ApplicationAdapter = DS.FixtureAdapter;
+App.ApplicationAdapter = DS.FixtureAdapter.extend({
+	latency : 1000
+});
 
 App.Router.map(function() {
-  this.resource( 'sessions', { path : '/' }, function(){
+  this.resource( 'sessions', { path : 'sessions' }, function(){
   	this.route( 'add' );
   } );
   
@@ -12,3 +14,7 @@ App.Router.map(function() {
   	this.route( 'speaker', { path : '/:name' } );
   });
 });
+
+// App.Router.reopen({
+//   location: 'auto'
+// });

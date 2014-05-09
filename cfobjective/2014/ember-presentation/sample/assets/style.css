@@ -4,11 +4,20 @@ html, body {
     font-family: Arial, sans-serif; 
     padding: 0;
     margin: 0;
+    font-size: 16px;
 }
 
 *{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+h2{
+  font-size: 1.3em;
+}
+
+h3{
+  font-size: 1em;
 }
 
 header{
@@ -34,7 +43,7 @@ ul{
 }
 
 .session-item{
-  padding: 1em .5em;
+  padding: 1em 0;
 }
 
 nav{
@@ -59,6 +68,10 @@ nav>ul{
   font-weight: bold;
 }
 
+.session-list{
+  margin-bottom: 1em;
+}
+
 .nav-item>a:visited{
   color: black;
 }
@@ -67,7 +80,56 @@ nav>a{
   color:white;
 }
 
-button{
-  border: 1px solid #CCC;
+.big-input{
   padding: .5em;
+  border: 2px solid #CCC;
+  font-size: 1em;
+  width: 250px;
+}
+
+.big-input-select{
+  height: 2em;
+  padding: 1em .5em;
+}
+
+.form-row>label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: .25em;
+}
+
+.form-row{
+  margin: 1em 0;
+}
+
+.session-form{
+  float: left;
+}
+
+.session-info{
+  float: left;
+  margin-top: 1em;
+  margin-left: 10em;
+}
+
+.attending{
+  color: #1CA3D9;
+}
+
+.speaker-name{
+  padding: .5em;
+  border-top: 2px solid #94D2EB;
+  border-bottom: 2px solid #94D2EB;
+}
+
+.button{
+  border: 1px solid #999;
+  padding: .5em 1em;
+  cursor: pointer;
+  background: #c9c9c9;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1em;
+  color: black;
+  margin: 0;
 }

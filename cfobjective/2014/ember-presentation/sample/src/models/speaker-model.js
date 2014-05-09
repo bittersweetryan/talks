@@ -5,7 +5,7 @@ App.Speaker = DS.Model.extend({
     return this.get( 'firstName' ) + ' '  + this.get( 'lastName' );
   }.property( 'firstName', 'lastName' ),
   bio : DS.attr( 'string' ),
-  sessions: DS.hasMany('session', { async : true } )
+  sessions: DS.hasMany('session' )
 });
 
 App.Speaker.FIXTURES = [
