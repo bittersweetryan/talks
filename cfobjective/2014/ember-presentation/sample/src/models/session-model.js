@@ -10,7 +10,7 @@ App.Session.FIXTURES = [
    {
     name : 'Creative Node.JS',
     track : 'JS',
-    id :3,
+    id : 3,
     description : 'Maybe not so much at cfObjective, but some of us think that web servers are a little boring. We like to push around graphics, interact with real world gadgets, and get front-end related tasks done. In this session I\'ll cover what Node.js can do without a webserver: no HTTP requests allowed!',
     going: false,
     speaker : 2
@@ -18,7 +18,7 @@ App.Session.FIXTURES = [
   {
     name : 'Stop Making Excuses And Start Testing Your JavaScript',
     track : 'JS',
-    id : 1,
+    id :  1,
     going : false,
     description : 'Most developers know that it\'s important to test their JavaScript, however there are a plethora of reasons why they don\'t.  This session will give attendees the tools to get started with JavaScript unit testing. Attendees will learn: how to setup a testing environment, how to write testable JavaScript code, how to solve some common JavaScript testing issues such as testing the DOM, and how to save time by automating running tests with tools like, Grunt and Testem.',
     speaker : 1

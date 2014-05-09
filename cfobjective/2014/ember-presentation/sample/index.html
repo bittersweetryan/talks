@@ -27,6 +27,16 @@
             </div>
         </script>
     
+        <script type="text/x-handlebars" data-template-name="loading">
+            <div class="loading">Loading...</div>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="error">
+            <div class="loading"></div>
+        </script>
+        
+
+
         <script type="text/x-handlebars" data-template-name="index">
             <div class="welcome>"
                 <p class="welcome-message">
@@ -37,7 +47,7 @@
 
         <script type="text/x-handlebars" data-template-name="session">
             <h2 {{bind-attr class=goingClass}}>
-                {{model.name}}{{#if model.going}}&nbsp;(Going){{/if}}
+                {{name}}{{#if going}}&nbsp;(Going){{/if}}
             </h2>
             <p>{{description}}</p>
             <button {{action 'going' this}} class="button">I'm {{#if going}}Not{{/if}} Going</button>
