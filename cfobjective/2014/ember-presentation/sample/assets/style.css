@@ -1,6 +1,5 @@
 /* Put your CSS here */
 html, body {
-    margin: 20px;
     font-family: Arial, sans-serif; 
     padding: 0;
     margin: 0;
@@ -132,4 +131,9 @@ nav>a{
   font-size: 1em;
   color: black;
   margin: 0;
+}
+
+.welcome{
+  margin-top: 2em;
+  max-width: 800px;
 }
