@@ -44,4 +44,8 @@ $(function(){
    var todos = new Todos( $( '.todo-list' ), $( '.new-todo' ) );
    app.init();
 });
-*/
+*/ 
+
+if( typeof module !== 'undefined' && module.exports ){
+    module.exports = Todos;
+}
