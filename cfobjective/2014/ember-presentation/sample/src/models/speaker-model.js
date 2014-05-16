@@ -29,5 +29,12 @@ App.Speaker.FIXTURES = [
     lastName : 'Wilson',
     bio : 'Dan is an avid participant in technology communities; an Adobe Community Professional, manager of the Triangle ColdFusion User Group in Research Triangle Park, North Carolina, Managing Director of the popular Model-Glue framework and contributor to numerous open source projects based on ColdFusion, Flex and AIR platforms.',
     sessions : [4]
+  },
+  {
+    id : 4,
+    firstName : 'Adam',
+    lastName : 'Tuttle',
+    bio : 'Adam is a jack of all trades but he specializes in JavaScript, REST, SOA, Security, and Responsive mobile-optimized design.<br><br> In addition to working with and speaking about ColdFusion, he is an Adobe Community Professional for ColdFusion, and maintains a growing library of open source projects including Taffy. Adam also blogs, mostly about tech stuff, at fusiongrokker.com and tweets as @AdamTuttle.',
+    sessions : [5,6]
   }
 ];

@@ -38,5 +38,21 @@ App.Session.FIXTURES = [
     id : 4,
     going : false,
     speaker : 3
+  },
+  {
+    name : 'Open Yourself to Colsures',
+    track : 'JS',
+    description : 'You don\’t need closures to write good code, but their benefits make it a skill worth learning. Closures provide extreme terseness, readability, and maintainability that you can’t get from any amount of encapsulation or abstraction, among other benefits. This session will start with a very brief history lesson to help you understand the reasons for their invention, and will use simple terminology and move from simple to progressively complex examples to make sure that everyone can keep up. We\'ll be looking at closures in both CFML and JavaScript. Even your boss could attend this session and truthfully say that they “get” closures afterward.',
+    id : 5,
+    going : false,
+    speaker : 4
+  },  
+  {
+    name : 'Building Communities: Lessons Learned From 4 Years Running a Successful Open Source CFML Project',
+    track : 'Architecture',
+    description : 'This session will explain why you (yes, you) should be participating in open source; how to decide what to build or contribute to; what makes an open source project successful; and how to encourage a community to thrive around that project -- all by using examples of my "failed" OSS projects and what I consider my single "successful" project. What differs between those projects? Did I behave differently?',
+    id : 6,
+    going : false,
+    speaker : 4
   }
 ];
