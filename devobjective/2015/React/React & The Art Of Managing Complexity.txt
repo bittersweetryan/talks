@@ -1,0 +1,30 @@
+#React & The Art Of Managing Complexity
+
+* About me.
+* What is React?
+* What Is Complexity
+	* Show complex/simple examples
+		* Interchange, single lane road
+		* Shuttle/Soyuez
+		* Simple Button
+			* Tradeoff ease of use vs. hidden complexity
+			* easy isn't always easy
+	* Unpredictability
+		* Two way data binding
+		* UI doesn't reflect data
+	* Complex code paths
+		* SRP
+* MVC Is the wrong abstraction
+	* GASP!
+	* Chart showing MVC as complexity grows
+* How does React help these things?
+	* Simply put, it encourages one-way data binding and immutability
+	* One way data binding
+		* Props vs. State
+		* How immutability helps
+			* Show directed graph and how immutability helps
+	* Welcome to the compassable web!
+* But what about my data
+	* Flux!
+		* A bit about the flux architecture
+		* Still one way data flow
