@@ -2,28 +2,29 @@
 
 * About me.
 * What is React?
-* What Is Complexity
-	* Show complex/simple examples
-		* Interchange, single lane road
-		* Shuttle/Soyuez
-		* Simple Button
-			* Tradeoff ease of use vs. hidden complexity
-			* easy isn't always easy
-	* Unpredictability
-		* Two way data binding
-		* UI doesn't reflect data
+* What Is Complexity?
+	* The inability to reason about what is mutating state in your app
 	* Complex code paths
-		* SRP
-* MVC Is the wrong abstraction
-	* GASP!
-	* Chart showing MVC as complexity grows
+	* The Wrong Abstractions
+		* MVC is the wrong abstraction!
+		* Composibility is the right pattern
+			* Separation of concerns doesn't mean model, view, and controller
+				* It means separation of disparate components
+				* Show composing a complex UI with React
+			* Pause for dramatic effect....
+				* Markup and actions are inherently tightly coupled
+				* JSX!
+					* Its NOT MARKUP
+					* it's not the onClick handler from the early 90's!
 * How does React help these things?
 	* Simply put, it encourages one-way data binding and immutability
 	* One way data binding
-		* Props vs. State
-		* How immutability helps
-			* Show directed graph and how immutability helps
-	* Welcome to the compassable web!
+	* Immutability!
+	* Limit state Changes
+		* However when 
+			* It's not slow.
+				* Tree traversal is O(n^3)
+				* But not with immutable data!
 * But what about my data
 	* Flux!
 		* A bit about the flux architecture
