@@ -3,9 +3,7 @@
 * About me.
 * What is React?
 * What Is Complexity?
-	* The inability to reason about what is mutating state in your app
-	* Complex code paths
-	* The Wrong Abstractions
+	* The Wrong Abstraction
 		* MVC is the wrong abstraction!
 		* Composibility is the right pattern
 			* Separation of concerns doesn't mean model, view, and controller
@@ -16,15 +14,20 @@
 				* JSX!
 					* Its NOT MARKUP
 					* it's not the onClick handler from the early 90's!
-* How does React help these things?
-	* Simply put, it encourages one-way data binding and immutability
-	* One way data binding
-	* Immutability!
-	* Limit state Changes
-		* However when 
-			* It's not slow.
-				* Tree traversal is O(n^3)
-				* But not with immutable data!
+		* Mutability
+			* Once you start changing things you start introducing unpredictability.
+			* Immutability!
+				* Props in a React application are immutable
+				* Immutability is boring.
+				* State is how data changes in react.  
+					* When state changes, just re-render EVERYTHING.
+						* The key is that you re-render the  Virtual DOM (fast, nothing is composted or painted)
+						* Diff actual DOM with real DOM.
+							* Who remembers their CS?  Big oh?  What is tree traversal?  
+							* O(n^3)! 
+								* Show directed graph with comparison.
+							* React's diff algorithm creates a patch, and applies it to the real DOM.
+
 * But what about my data
 	* Flux!
 		* A bit about the flux architecture
