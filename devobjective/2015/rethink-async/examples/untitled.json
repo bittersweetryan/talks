@@ -1,0 +1,140 @@
+{
+  "urls": [
+    {
+      "url": "/",
+      "pageName": "HOME",
+      "state": "home",
+      "template": "signup/body_responsive_home",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/gift",
+      "pageName": "GIFT_LANDING",
+      "state": "gift",
+      "template": "signup/gift/landing",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/giftlanding",
+      "pageName": "GIFT_LANDING",
+      "state": "gift",
+      "template": "signup/gift/landing",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/code",
+      "pageName": "GIFT_CODE",
+      "state": "gift",
+      "template": "signup/gift/landing",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/giftcard",
+      "pageName": "GIFT_CODE",
+      "state": "gift",
+      "template": "signup/gift/landing",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/giftcode",
+      "pageName": "GIFT_CODE",
+      "state": "gift",
+      "template": "signup/gift/landing",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/giftregister",
+      "pageName": "GIFT_REGISTER",
+      "state": "gift",
+      "template": "signup/gift/register",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/getstarted",
+      "pageName": "GETSTARTED",
+      "state": "getstarted",
+      "template": "signup/body_responsive_getstarted",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/watch",
+      "pageName": "WATCH",
+      "state": "watch",
+      "template": "signup/watch",
+      "layout": "signup/main_responsive",
+      "action": "signup/baseAction"
+    },
+    {
+      "url": "/WiGenre",
+      "pageName": "WIGENRE",
+      "state": "wigenre",
+      "template": "discovery/WiGenre",
+      "layout": "discovery/memberLayout",
+      "action": "discovery/wigenre"
+    },
+    {
+      "url": "/WiHome",
+      "pageName": "WIHOME",
+      "state": "wihome",
+      "template": "discovery/WiHome",
+      "layout": "discovery/memberLayout",
+      "action": "discovery/wihome"
+    },
+    {
+      "url": "/WiPlayer",
+      "pageName": "WIPLAYER",
+      "state": "wiplayer",
+      "template": "discovery/WiPlayer",
+      "layout": "discovery/playerLayout",
+      "action": "discovery/wiplayer"
+    },
+    {
+      "url": "/TestPage",
+      "pageName": "TESTPAGE",
+      "state": "testpage",
+      "template": "discovery/TestPage",
+      "layout": "discovery/memberLayout",
+      "action": "discovery/testpage"
+    },
+    {
+      "url": "/assets/package",
+      "pageName": "PATHOGEN_PACKAGE",
+      "state": "pathogen_package",
+      "template": "internal/pathogenPackage",
+      "layout": "json",
+      "action": "internal/pathogenpackage"
+    },
+    {
+      "url": "/ios",
+      "pageName": "IOS",
+      "state": "",
+      "template": "ios",
+      "layout": "iosLayout",
+      "action": "discovery/ios"
+    },
+    {
+      "url": "/marketing/orange/s2",
+      "pageName": "ORANGE_MARKETING",
+      "state": "",
+      "template": "discovery/marketing",
+      "layout": "discovery/marketingLayout",
+      "action": "discovery/marketing"
+    },
+    {
+      "url": "/ChangePlan",
+      "pageName": "CHANGEPLAN",
+      "state": "account",
+      "template": "account/changePlan",
+      "layout": "discovery/memberLayout",
+      "action": "account/changePlan"
+    }
+  ]
+}
