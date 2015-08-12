@@ -7,10 +7,8 @@ for piecing together an application.
   * HTML 2.0 Was released in 1994
   * 1993 - CSS spec is a W3c Recommendation
   * 1995 Allaire ColdFusion 1.0!
-  * 1996 - Netscape 2.0 ships with JavaScript
   * ... EXT, Dojo, Prototype
   * 2006 - jQuery - still writing things in two languages
-  * 2008 - Chrome .v1
   * 2009 - Node - JavaScript Everywhere!  The modern UI
     * We still weren't sure what to do with this new technology?
     * Connect & Express came along and we all started replacing our PHP sites with node, (without rethinking our architecture)
@@ -67,12 +65,10 @@ for piecing together an application.
   * It's ready
   * brief overview (it is part of modern UI development)
     * classes
-    * let, const
     * enhanced object syntax, kinda
     * desctucturing
     * arrow functions
     * string literals
-    * rest parameters
 * Languages that Transpile to JS
   * JSX
   * CoffeeScript
