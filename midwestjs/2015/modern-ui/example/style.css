@@ -1,0 +1,17 @@
+body {
+    padding: 30px;
+}
+
+.text-input{
+    padding: 10px;
+    font-size: 22px;
+}
+
+.input-label{
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.midwest-title{
+    color: goldenrod;
+}
